@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ender 3 Controller</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1>Ender 3 Controller</h1>
+
+    <section class="card">
+      <h2>Status</h2>
+      <div id="status">Loading...</div>
+    </section>
+
+    <section class="card">
+      <h2>Controls</h2>
+      <div class="row">
+        <button onclick="cmd('/api/home')">Home</button>
+        <button onclick="cmd('/api/cooldown')">Cooldown</button>
+        <button onclick="cmd('/api/fan_on')">Fan On</button>
+        <button onclick="cmd('/api/fan_off')">Fan Off</button>
+        <button onclick="cmd('/api/pause')">Pause</button>
+        <button onclick="cmd('/api/resume')">Resume</button>
+        <button onclick="cmd('/api/stop')">Stop</button>
+      </div>
+      <div class="row">
+        <input id="hotend" type="number" placeholder="Hotend C" />
+        <button onclick="setHotend()">Set Hotend</button>
+      </div>
+      <div class="row">
+        <input id="bed" type="number" placeholder="Bed C" />
+        <button onclick="setBed()">Set Bed</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Files</h2>
+      <div class="row">
+        <input id="uploadFile" type="file" accept=".gcode,.gc,.gco,.txt" />
+        <button onclick="uploadFile()">Upload</button>
+      </div>
+      <div id="files">No files yet.</div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
